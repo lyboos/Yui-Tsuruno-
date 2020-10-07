@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main(void)
+{
+    int dogs;
+
+    printf("hello\n");
+    printf("So you have 4 dog(s)!\n");
+        return 0;
+}
+
