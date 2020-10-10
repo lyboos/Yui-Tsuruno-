@@ -1,0 +1,44 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+
+struct LY
+{
+	char like[20];
+	int height
+		; short weight;
+};
+int main()
+{
+	int a = 0;
+	printf("press password to start\n");
+	scanf("%d", &a);
+	switch (a)
+	{
+	default:printf("ERROR");
+		break;
+	case 613:
+		printf("通过\n");
+		struct LY liuy = { "MAN",182,55 };
+		struct LY* LPN = &liuy;
+		strcpy(liuy.like, "WOMEN");
+		printf("LYlike%s\n", liuy.like)
+			; printf("身高%dcm\n", liuy.height)
+			; printf("体重%dkg\n", liuy.weight);
+		; printf("LYlike%s\n", LPN->like);
+		break;
+	}
+	return 0;
+}
+////int main()
+//{
+//	int a = 0;
+//	printf("输入一个整数\n");
+//	scanf("%d",&a);
+//	if (1 == a % 2)
+//		printf("%d是一个奇数\n", a);
+//	else if (0 == a % 2)
+//		printf("%d是一个偶数\n");
+//	else printf("输一个整数很难？？？");
+//	return 0;
+//}
