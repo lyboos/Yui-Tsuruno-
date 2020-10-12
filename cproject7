@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+//int erfen_search(int ly[], int a,int sz)
+//{
+//	int L = 0, R = sz- 1;
+//	while (L <= R)
+//	{
+//		int Mid = (L + R) / 2;
+//		if (ly[Mid] < a)
+//			L = Mid + 1;
+//		else if (ly[Mid] > a)
+//			R = Mid - 1;
+//		else if (ly[Mid] = a) 
+//			return Mid;
+//	}
+//	return -1;
+//}
+//int main()
+//{
+//	int ly[] = { 1,2,3,4,5,6,7,8,9 }, a = 0,sz=sizeof(ly)/sizeof(ly[0]);
+//	printf("输入一至九数字测试二分查找法\n");
+//		scanf("%d", &a);
+//		int ret = erfen_search(ly, a,sz);
+//		if (ret == -1)
+//			printf("\n找不到指定数字");
+//		else
+//			printf("\n找到了，下角标为%d", ret);
+//	return 0;
+//}
+void app(int* p)
+{
+	*p = *p + 1;
+}
+int main()
+{
+	int num = 0;
+	app(&num);
+	printf("num=%d\n", num);
+	return 0;
+}
