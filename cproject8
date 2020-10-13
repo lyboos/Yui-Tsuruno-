@@ -1,0 +1,18 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+//int main()
+//{
+//	char ly1[] = "welcome to los santos";
+//	char ly2[] = "*********************";
+//	int L = 0, R = strlen(ly1) - 1;
+//	for (; L <=R;L++,R--)
+//	{
+//		printf("%s\n", ly2);
+//		Sleep(500);
+//		ly2[L] = ly1[L];
+//	    ly2[R] = ly1[R];		
+//	}
+//	return 0;
+//}
