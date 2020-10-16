@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int a = 1;
+	scanf("%d", &a);
+	hnt(a,'A','B','C');
+	return 0;
+}
+//int qwt(int n)
+//{
+//	int c = 1;
+//	for (int a=1,b=1; n > 2; n--)
+//	{  
+//		c = a + b;
+//			a = b;
+//			b = c;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int a = 1;
+//	printf("输入n值以查找青蛙跳到n台阶上方式\n");
+//	scanf("%d", &a);
+//	int b=qwt(a);
+//	printf("\n%d种方法", b);
+//	return 0;
+//}
