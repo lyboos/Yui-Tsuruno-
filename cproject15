@@ -1,0 +1,41 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<Windows.h>
+//int main()
+//{
+//	int arr[][4] = { {1,2,3,4},{4,4,4,4},{4,3,2,1} };
+//	for (int i = 0; i < 3;i++)
+//	{
+//		int n = 0;
+//		for (; n < 4; n++) 
+//		{
+//			printf("%d\t", arr[i][n]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+//void maopao(int ly[],int sz)
+//{
+//	for (int i = 0; i < sz-1; i++)
+//	{
+//		int n = 0;
+//		int jc = 1;
+//		for (; n < sz-1; n++)
+//		{
+//			if (ly[n] > ly[n + 1]) {
+//				int jy = ly[n];
+//				ly[n] = ly[n + 1];
+//				ly[n + 1] = jy;
+//				jc = 0;
+//			}
+//		}
+//		if (jc == 1) break;
+//	}
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d\n", ly[i]);
+//	}
+//
+//}
