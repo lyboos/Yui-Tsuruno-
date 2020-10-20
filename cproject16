@@ -1,0 +1,57 @@
+//int main()
+//{
+//	int a = 0, b = 0,f=0;
+//	scanf("%d\n%d",&a,&b);
+//	for (;a< 366; a+=3)
+//	{
+//		for (; b < 366; b += 7)
+//		{
+//			if (a == b)
+//			{
+//				f = 1;
+//				break;
+//			}
+//		}	
+//	}
+//	if (f == 1)printf("Y\n");
+//	else printf("N\n");
+//	return 0;
+//}
+//int fbnq(int n)
+//{
+//	if (n == 2 || n == 1)
+//		return 1;
+//	else
+//	{
+//	return n= fbnq(n - 1) + fbnq(n - 2);
+//	}
+//}
+//int main()
+//{
+//	int a,n = 0;
+//	scanf("%d", &n);
+//	a=fbnq(n);
+//	printf("\n%d", a);
+//	return 0;
+//}
+//int main()
+//{
+//	int i;
+//	int j;
+//	for (i = 4; i >= 0; i--) {
+//		Sleep(500);
+//		for (j = 1; j <= i; j++)
+//			printf("#");
+//		for (j = 1; j <= 4 - i; j++)
+//			printf("*");
+//		printf("\n");
+//	}
+//	return 0;
+//}
+int main()
+{
+	int a = 0;
+	scanf("%d", &a);
+	printf("%d时%d分%d秒", a/3600,a/60%60,a%60);
+	return 0;
+}
