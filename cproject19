@@ -1,0 +1,22 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{	char nchar;
+	int count = 0;
+	int gotINT = 0;
+	printf("Enter your string:");
+	do{	scanf("%c", &nchar);
+	if (gotINT > 2) gotINT = 0;
+	switch (nchar)
+	{case'i':
+		gotINT++;break;
+	case'n':
+		if (gotINT = 1) {
+			gotINT++; break;}
+	case't':
+		if (gotINT == 2)
+		{gotINT = 0;
+			count++;}
+		break;}	} while (nchar!='\n');
+	printf("%d个int", count);
+}
