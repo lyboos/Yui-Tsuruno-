@@ -1,0 +1,19 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+void printReverse(char* str) {
+	if (!*str)
+		return;
+	printReverse(str + 1);
+	printf("%c",*str);
+}
+int main()
+{
+	char arr[100];
+	scanf("%s", arr);
+	printReverse(arr);
+}
+//int main()
+//{
+//	int a = 6;
+//	printf("%d%d",++a, a++);
+//}
