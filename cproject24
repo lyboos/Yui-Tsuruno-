@@ -1,0 +1,39 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+//int main()
+//{
+//	int a,b;
+//	scanf("%d %d", &a,&b);
+//	int c = a | b;
+//	int d = a & b;
+//	int e = a ^ b;
+//	printf("%d\n%d\n%d", c,d,e);
+//	/*printf("%d\n%x\n",a,a);
+//	int b=a >> 2;
+//	int c = a << 2;
+//	printf("%d\n%d",b,c);*/
+//	return 0;
+//}
+//int main()
+//{
+//	int a,n=0;
+//	scanf("%d", &a);
+//	for(int b=1;b<=32;b++)
+//	{
+//		if ((1 & a >> b) % 2 == 1)
+//			n++;
+//	}
+//	printf("%d", n);
+//	return 0;
+//}
+int main()
+{
+	int n=0, a;
+	scanf("%d", &a);
+	while (a) {
+		n++;
+		a = a & (a - 1);
+	}
+	printf("二进制中1的个数为%d\n", n);
+	return 0;
+}
