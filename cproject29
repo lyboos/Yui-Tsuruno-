@@ -1,0 +1,52 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+//void init(int bbb[],int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		bbb[i] = i;
+//	}
+//}
+void print(char bbb[],int n)
+{
+	int i = 0;
+	for (i = 0; i < n; i++)
+	{
+		printf("%c",bbb[i]);
+	}
+}
+//void reverse(int bbb[], int n)
+//{
+//	int left = 0, right = n - 1;
+//	while (left<right)
+//	{
+//		int a = bbb[left];
+//		bbb[left] = bbb[right];
+//		bbb[right] = a;
+//		left++;
+//		right--;
+//	}
+//}
+//int main()
+void reverse(char a[], char b[],int i)
+{
+	int  n;
+	char m;
+	for (n = 0; n < i; n++)
+	{
+		m = a[n];
+		a[n] = b[n];
+		b[n] = m;
+	}
+}
+int main()
+{
+	char a[] = { 0 };
+	char b[] = { 0 };
+	scanf("%s", a);
+	scanf("%s", b);
+	int i = strlen(a);
+	reverse(a, b,i);
+	return 0;
+}
