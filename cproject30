@@ -1,0 +1,63 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+//int countbitone(unsigned int i)
+//{
+//	int n = 0;
+//	for (int a= 0; a < 32; a++)
+//	{
+//		if ((i >> a) & 1 == 1)
+//			n++;
+//	}
+//	/*while (i)
+//	{
+//		if (i % 2)
+//			n++;
+//		i = i / 2;
+//	}*/
+//	return n;
+//}
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);
+//	int count = countbitone(a);
+//	printf("%d", count);
+//	return 0;
+//}
+//int bijiao(int a, int b)
+//{
+//	int n = 0, tem = a ^ b;
+//	while (tem)
+//	{
+//		tem=tem& (tem - 1);
+//		n++;
+//	}
+//	return n;
+//}
+//int main()
+//{
+//	int a, b;
+//	scanf("%d\n%d", &a, &b);
+//	int count = bijiao(a, b);
+//	printf("%d", count);
+//	return 0;
+//}
+void bitprinit(n)
+{
+	for (int i = 31; i >=0; i = i - 2)
+	{
+		printf("%d", 1  & (n>>i));
+	}
+	printf("\n");
+	for (int i = 30; i >=0; i=i-2)
+	{
+		printf("%d", 1 & (n>>i));
+	}
+}
+int main()
+{
+	int m;
+	scanf("%d", &m);
+	bitprinit(m);
+	return 0;
+}
