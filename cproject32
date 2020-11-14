@@ -1,0 +1,33 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+//int detection(int a)
+//{
+//	int b = a / 100, c = a/10-b*10, d = a % 10;
+//	if (pow(b, 3) + pow(c, 3) + pow(d, 3) == a)
+//		return 1;
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	int a;
+//	scanf("%d", &a);
+//	if (detection(a))
+//		printf("%d是水仙花数", a);
+//	return 0;
+//}
+typedef struct ly
+{
+	char name[];
+	struct ZYS;
+}ly;
+int main()
+{
+	ly liuyang = {"lyboos"};
+    ly *p = &liuyang;
+	printf("%s\n", p->name);
+	printf("%s", liuyang.name);
+	return 0;
+}
