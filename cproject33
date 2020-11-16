@@ -1,0 +1,35 @@
+//typedef struct ly
+//{
+//	char name[];
+//	struct ZYS;
+//}ly;
+//int main()
+//{
+//	ly liuyang = {"lyboos"};
+//    ly *p = &liuyang;
+//	printf("%s\n", p->name);
+//	printf("%s", liuyang.name);
+//	return 0;
+//}
+#include<stdio.h>
+int main()
+{
+	char a[99];
+	int n = 0,c=0;
+	scanf("%s", a);
+	while (a[c]!='\0')
+	{
+		int b = 0;
+		if (a[c] == 'i')
+		b++;
+		if (a[c + 1] == 'n')
+			b++;
+		if (a[c + 2] == 't')
+			b++;
+		if (b == 3)
+			n++;
+		c++;
+	}
+	printf("%d个int", n);
+	return 0;
+}
