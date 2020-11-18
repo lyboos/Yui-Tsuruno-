@@ -1,0 +1,46 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+//int main()
+//{
+//	int num = 0, n;
+//	scanf("%d", &n);
+//	int j = 1;
+//	for (int i = 1; i <=n; i++)
+//	{
+//		j *= i;
+//		num += j;
+//	}
+//	printf("%d", num);
+//	return 0;
+//}
+//int main()
+//{
+//	double n, x;
+//	scanf("%lf",&x);
+//	scanf("%lf", &n);
+//	double j = x, num = 1.0;
+//	for (double i = 1.0; i < n; i++)
+//	{
+//		num += j;
+//		j = j * j / (i+1);
+//	}
+//	printf("%lf", num);
+//	return 0;
+//}
+int main()
+{
+    double prec = 1e-6; 
+	double term = 1, sum = 0, x = 0;  //每个相加的数为term 
+	double up = 1, low = 1;           // 每个相加的数的分子为up， 分母为low 
+	int i = 1;                         //i为循环体 
+	scanf("%lf", &x);
+	while (term > prec)
+	{
+		sum =sum+ term;
+		up = up * x;
+		low = low * i;
+		term = up / low;
+		i++;
+	} 
+	printf("e^%.0lf = %lf\n", x, sum);
+}
