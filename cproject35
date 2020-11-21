@@ -1,0 +1,35 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<assert.h>
+void mystrcpy(char* a,const char* b)
+{
+	assert(a != NULL);
+	assert(b != NULL);
+	while (*a++ = *b++);
+	//进阶写法
+	/*if (a != NULL && b != NULL)
+		while (*a++ = *b++);
+	else printf("参数有误！！！\n");*/
+	//基础写法：
+	/*while (*b != '\0') {
+		*a = *b;
+		b++;
+		a++;
+	}
+	*a = *b;
+	while (*a != '\0')
+	{
+		*a = '\0';
+		a++;
+	}*/
+}
+int main()
+{
+	char a[20] = "lylyly";
+	char  b[20];
+	char c[20];
+	mystrcpy(b, a);
+	mystrcpy(c, "copy successful");
+	printf("%s\n%s\n%s",a,b,c);
+	return 0;
+}
