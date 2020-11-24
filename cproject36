@@ -1,0 +1,26 @@
+#include<stdio.h>
+////int main()
+//{
+//	char a[20] = "lylyly";
+//	char  b[20];
+//	char c[20];
+//	mystrcpy(b, a);
+//	mystrcpy(c, "copy successful");
+//	printf("%s\n%s\n%s",a,b,c);
+//	return 0;
+//}
+int main()
+{
+	int a = 1;
+	int* p = &a;
+	char* b = (char*)&a;
+	if (*b == 1)
+		printf("小端");
+	else printf("大端");
+	return 0;
+}
+//%u无符号十进制整数
+//char a=128;
+//printf("%u",a)
+//==  极大的数
+//整型提升的典例
