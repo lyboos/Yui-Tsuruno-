@@ -1,0 +1,44 @@
+#include<stdio.h>
+long reverse(long n)
+{
+	long a = 1, y = 0;
+	while (n)
+	{
+		a = n % 10;
+		n = n / 10;
+		y = a + y * 10;
+	}
+	return y;
+}
+
+int jiance(long n)
+{
+	return (reverse(n) == n ? 0 : 1);
+}
+
+int fun(long n, long* hw)
+{
+	int swap = 0;
+	while(jiance(n))
+	{
+		int huiwen = reverse(n);
+		n += huiwen;
+		swap++;
+		if (swap > 10000)
+			return -1;
+	}
+	*hw = n;
+	return swap;
+}
+
+int main()
+{
+	int a=0, b=0, c=0;
+	scanf("%d", &a);
+	long* hw = &b;
+	c = fun(a, hw);
+	if (c == -1)
+		printf("error");
+	else printf("%d\n%d",*hw,c);
+	return 0;
+}
