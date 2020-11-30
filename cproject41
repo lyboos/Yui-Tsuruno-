@@ -1,0 +1,49 @@
+#include<stdio.h>
+void menu()
+{
+	printf("**********************\n");
+	printf("***1.add*****2.sub****\n");
+	printf("***3.mul*****4.div****\n");
+	printf("********0.exit********\n");
+	printf("**********************\n");
+}
+int main()
+{
+	int input = 0;
+	double x, y;
+	double (*parr[5])(double, double) = { 0,Add,Sub,Mul,Div };
+	do
+	{
+		menu();
+		printf("请选择：");
+		scanf("%d", &input);
+		if (input >= 1 && input <= 4) {
+			printf("输入两个计算数：\n");
+			scanf("%lf %lf", &x, &y);
+			printf("%lf\n", parr[input](x, y));
+		}
+		else if (input == 0)
+		{
+			printf("已退出\n");
+		}
+		else {
+			printf("参数错误\n");
+	        }
+		/*switch (input)
+		{
+		case 1:   printf("%lf\n", Add(x, y));
+			break;
+		case 2:  printf("%lf\n", Sub(x, y));
+			break;
+		case 3:  printf("%lf\n", Mul(x, y));
+			break;
+		case 4:  printf("%lf\n", Div(x, y));
+			break;
+		default:
+			printf("Error!\n");
+			break;
+		}*/
+	} while (input!=0);
+
+	return 0;
+}
