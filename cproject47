@@ -1,0 +1,22 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+
+int main()
+{
+	int arr[3][4] = { {0,1} };
+	//printf("%d\n", sizeof(arr));//48
+	//printf("%d\n", sizeof(arr[0]));//16
+	//printf("%d\n", sizeof(arr[0][1]));//4
+	//printf("%d\n", sizeof(arr[0]+1));//4
+	//printf("%d\n", sizeof(*(arr[0]+1)));//4
+	/*printf("%d\n", sizeof(arr+1));
+	printf("%d\n", sizeof(*(arr+1)));*/
+	/*int* p;
+	p = arr[0];
+	printf("%d", p[0]);*/
+	int a[5][5];
+	int(*p)[4];
+	p = a;
+	printf("%p\n%d", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
+	return 0;
+}
