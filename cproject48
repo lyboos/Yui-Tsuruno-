@@ -1,0 +1,45 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+
+int main() {
+    void  line_sort(int a[][4], int b[], int n);
+    int a[5][4] = { 0 }, b[5] = { 0 }, i, j;
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    line_sort(a, b, 5);
+    for (i = 0; i < 5; i++, printf("\n"))
+        for (j = 0; j < 5; j++)
+            printf("%d ", a[5][4]);
+    printf("sum\n");
+    for (i = 0; i < 5; i++)
+        printf("%d", b[i]);
+    return 0;
+}
+void  line_sort(int a[][4], int b[], int n) {
+    int i, j, point, g, d;
+    for (i = 0; i < n; i++)
+        for (j = 0; j < 4; j++)
+            b[i] += a[i][j];
+    for (i = 0; i < n; i++) {
+        point = i;
+        for (j = 1; j < n; j++) {
+            if (b[point] > b[j])
+                point = j;
+        }
+        if (point != i) {
+            g = b[point];
+            b[point] = b[i];
+            b[i] = g;
+        }
+        for (d = 0; d < 4; d++) {
+            g = a[point][d];
+            a[point][g] = a[i][g];
+            a[i][g] = a[point][g];
+        }
+    }
+}
