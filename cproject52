@@ -1,0 +1,102 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int n,i,j,length=1,judge=0;
+	scanf("%d", &n);
+	i = n;
+	while (i/=10)
+	{
+		length++;
+	}
+	j = length;
+	for (i=n;  length>0; length--)
+	{
+		int num = i% 10;
+		i = i / 10;
+		if ((num != 0) && n %num == 0)
+			judge++;
+	}
+	if (judge == j) printf("ture");
+	else printf("false");
+	return 0;
+}
+#include<stdio.h>
+int main()
+{
+	int d, y, m;
+	scanf("%d\n%d\n%d", &d, &m, &y);
+	if (m == 1 || m == 2) {
+		m += 12;
+		y--;
+	}
+	int iWeek = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7+1;
+	switch (iWeek)
+	{
+	case 1: printf("Monday");
+		break;
+	case 2:printf("Tuesday");
+		break;
+	case 3:printf("Wednesday");
+		break;
+	case 4:printf("Thursday");
+		break;
+	case 5:printf("Friday");
+		break;
+	case 6:printf("Saturday");
+		break;
+	case 7:printf("Sunday");
+		break;
+	default:
+		break;
+	}
+	return 0;
+}
+#include<stdio.h>
+void max3(int* x, int* y, int* z)
+{
+	if (*x < *y)
+	{
+		*x= *y ^ *x;
+		*y = *y ^ *x;
+		*x = *y ^ *x;
+	}
+	if (*y < *z)
+	{
+		*y= *y ^ *z;
+		*z = *y ^ *z;
+		*y = *y ^ *z;
+	}
+	if (*x<*y)
+	{
+		*x = *y ^ *x;
+		*y = *y ^ *x;
+		*x = *y ^ *x;
+	}
+}
+int main()
+{
+	int n, i, a[200000] = { 0 };
+	scanf("%d", &n);
+	for ( i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	if (n == 2)
+		printf("%d", (a[0] > a[1] ? a[0] : a[1]));
+	else {
+		max3(&a[0],&a[1],&a[2]);
+		int first = a[0], second=a[1],third=a[2];
+			for ( i = 3; i < n; i++)
+			{
+				if (a[i] > first)
+					first = a[i];
+				else if (a[i]<first && a[i]>second)
+					second = a[i];
+				else if (a[i]<second && a[i]>third)
+					third = a[i];
+			}
+		printf("%d", third);
+	}
+	return 0;
+}
