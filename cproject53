@@ -1,0 +1,92 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+#include<math.h>
+
+//int cola(int n)
+//{
+//	if (n == 0) return 0;
+//	return n + cola(n / 2);
+//}
+
+int main()
+{
+	int n,empty=0,sum=0;
+	scanf("%d", &n);
+	empty += n;
+	sum += n;
+	while (empty>=2)
+	{
+		sum += empty / 2;
+		empty = empty / 2 + empty % 2;
+	}
+	printf("%d", sum);
+	return 0;
+}
+//if (n==0)
+//sum=0;
+//else 
+//sum=n/2+1;
+//int main()
+//{
+//	int nums[200000] = { 0 };
+//	int n = 0,i=0,j=0;
+//	scanf("%d", &n);
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &nums[i]);
+//	}
+//	int max = nums[0];
+//	for ( i = 0; i < n; i++)
+//	{
+//		int x = 0;
+//		for ( j = i; j < n; j++)
+//		{
+//			x += nums[j];
+//			if (x > max)
+//				max = x;
+//		}
+//	}
+//	printf("%d", max);
+//	return 0;
+//}
+#include<stdio.h>
+//
+//int main()
+//{
+//	int n,i;
+//	scanf("%d", &n);
+//	if (n < 0)
+//	{
+//		n = ~n + 1;
+//		printf("-");
+//	}
+//	if (n % 10==0) n /= 10;
+//	i = 10 * n;
+//	while (i/= 10)
+//	{
+//		printf("%d", n%10);
+//		n = n / 10;
+//	}
+//	return 0;
+//}
+int main()
+{
+	int nums[200000],target,n,i,j;
+	scanf("%d", &n);
+	for ( i = 0; i < n; i++)
+	{
+		scanf("%d", &nums[i]);
+	}
+	scanf("%d", &target);
+	for ( i = 0; i < n-1; i++)
+	{
+		for(j = i+1; j < n; j++)
+		{
+			if (nums[j] + nums[i] == target)
+				printf("%d %d", i, j);
+		}
+	}
+	return 0;
+}
