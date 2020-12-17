@@ -1,0 +1,74 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+#include <string.h>
+int main(){
+    char c[100]={'\0'},w[10][10]={'\0'};
+    int a[100]={0},i,j,k=0,max=0;
+    gets(c);
+    for(i=0;i<10;i++,k++)
+        for(j=0;j<10;j++){
+            if(c[k]>=65&&c[k]<=90||c[k]>=97&&c[k]<=122)
+                    w[i][j]=c[k++];
+            else{
+                if(w[i][0]=='\0')
+                    i--;
+                break;
+            }
+        }
+    for(i=0;i<10;i++)
+        a[i]=strlen(w[i]);
+    for(i=0;i<10;i++){
+        if(a[i]>max)
+            k=i;
+    }
+    puts(w[k]);
+    return 0;
+}
+
+//注意递归错误！！未考虑空余出的瓶数可递加到后来的空瓶上
+//int cola(int n)
+//{
+//	if (n == 0) return 0;
+//	return n + cola(n / 2);
+//}
+
+int main()
+{
+	int n,empty=0,sum=0;
+	scanf("%d", &n);
+	empty += n;
+	sum += n;
+	while (empty>=2)
+	{
+		sum += empty / 2;
+		empty = empty / 2 + empty % 2;
+	}
+	printf("%d", sum);
+	return 0;
+}
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char c[100] = { '\0' }, w[10][10] = { '\0' };
+    int a[100] = { 0 }, i, j, k = 0, max = 0;
+    gets(c);
+    for (i = 0; i < 10; i++, k++)
+        for (j = 0; j < 10; j++) {
+            if (c[k] >= 65 && c[k] <= 90 || c[k] >= 97 && c[k] <= 122)
+                w[i][j] = c[k++];
+            else {
+                if (w[i][0] == '\0')
+                    i--;
+                break;
+            }
+        }
+    for (i = 0; i < 10; i++) {
+        if (strlen(w[i]) > max) {
+            max = strlen(w[i]);
+            k = i;
+        }
+    }
+    puts(w[k]);
+    return 0;
+}
