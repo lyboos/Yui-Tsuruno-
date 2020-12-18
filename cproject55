@@ -1,0 +1,43 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+#include<math.h>
+
+//囚犯真假问题
+//典中典
+//int main()
+//{
+//	int killer = 0;
+//	for ( killer = 'a'; killer <='d'; killer++)
+//	{
+//		if ((killer != 'a') + (killer == 'c') + (killer == 'd') + (killer != 'd')==3)
+//			printf("%c", killer);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10][10] = { 0 };
+//	int i,j;
+//	for ( i = 0; i < 10; i++)
+//	{
+//		for ( j = 0; j <=i; j++)
+//		{
+//			if (j==0||j==i)
+//			arr[i][j] = 1;
+//			if (j >= 1 && i >= 2)
+//				arr[i][j] = arr[i - 1][j-1] + arr[i - 1][j ];
+//		}
+//	}
+//	for ( i = 0; i < 10; i++)
+//	{
+//		for (j = 0; j <=i; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
