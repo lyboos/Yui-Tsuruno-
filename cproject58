@@ -53,3 +53,79 @@ int main()
 	printf("%s", arr);
 	return 0;
 }
+
+//better thought
+void reverse(char* left,char* right)
+{
+	assert(left);
+	assert(right);
+	while (left<right)
+	{
+		char tmp = *left;
+		*left = *right;
+		*right = tmp;
+		left++;
+		right--;
+	}
+}
+void leftmove(char arr[], int n)
+{
+	assert(arr);
+	int len=strlen(arr);
+	assert(n <= len);
+	reverse(arr,arr+n-1);
+	reverse(arr+n,arr+len-1);
+	reverse(arr,arr+len-1);
+}
+
+//在此基础上延展：
+void reverse(char* left, char* right)
+{
+	assert(left);
+	assert(right);
+	while (left < right)
+	{
+		char tmp = *left;
+		*left = *right;
+		*right = tmp;
+		left++;
+		right--;
+	}
+}
+void leftmove(char arr[], int n)
+{
+	assert(arr);
+	int len = strlen(arr);
+	assert(n <= len);
+	reverse(arr, arr + n - 1);
+	reverse(arr + n, arr + len - 1);
+	reverse(arr, arr + len - 1);
+}
+int isleftmove(char* arr1, char* arr2)
+{
+	int len = strlen(arr1);
+	int i = 0;
+	for ( i = 0; i < len; i++)
+	{
+		leftmove(arr1, i);
+		int ret = strcmp(arr1, arr2);
+		if (ret == 0)
+			return 1;
+	}
+}
+
+int main()
+{
+	char arr1[30]= "abcdef";
+	char arr2[30]= "defabc";
+	int ret = isleftmove(arr1, arr2);
+	if (ret==1)
+	{
+		printf("YES\n");
+	}
+	else
+	{
+		printf("NO\n");
+	}
+	return 0;
+}
