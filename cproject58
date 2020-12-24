@@ -1,0 +1,55 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+//int detect(char* arr1, char* arr2)
+//{
+//	int len1 = strlen(arr1), len2 = strlen(arr2);
+//	if (len1 != len2)
+//		return 0;
+//	strncat(arr1, arr1, len1);
+//	char* ret = strstr(arr1, arr2);
+//	if (ret == NULL)
+//		return 0;
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char arr1[30] = "abcdefg";
+//	char arr2[30] = "fgabcde";
+//	if (detect(arr1,arr2)==1)
+//	{
+//		printf("YES\n");
+//	}
+//	else
+//	{
+//		printf("NO\n");
+//	}
+//	return 0;
+//}
+
+void reverse(char arr[],int a)
+{
+	int len = strlen(arr);
+	int i, j;
+	for ( i = 0; i <a; i++)
+	{
+		char tmp = *arr;
+			j = 0;
+		for ( j = 0; j < len-1; j++)
+		{
+			*(arr + j) = *(arr + j + 1);
+		}
+		*(arr + len-1) = tmp;
+	}
+}
+int main()
+{
+	char arr[100] = { 0 };
+	scanf("%s", arr);
+	int a;
+	scanf("%d",&a);
+	reverse(arr,a);
+	printf("%s", arr);
+	return 0;
+}
