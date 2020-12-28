@@ -1,0 +1,146 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int strlen(char* s)
+{
+	int n = 0;
+	while (*(s+n)!='\0')
+	{
+		n++;
+	}
+	return n;
+}
+
+int main()
+{
+	char str[100];
+	char cut[100];
+	scanf("%s", str);
+	scanf("%s", cut);
+	int a, b,arr[100],i=0;
+	for ( a = 0; a < strlen(str); a++)
+	{
+		int flag = 1;
+		for ( b = 0; b < strlen(cut); b++)
+		{
+			if (str[a+b] != cut[b])
+				flag = 0;
+		}
+		if (flag)
+		{
+			arr[i] = a;
+			i++;
+		}
+	}
+	while (i--)
+	{
+		for (b = 0; b < strlen(cut); b++)
+		{
+			str[arr[i]+b] = '\n';
+		}
+	}
+	int flag = 0;
+	for (a = 0; a <strlen(str); a++)
+	{
+		if ((a == 0) && str[a] == '\n')
+		{
+			printf("EmptyString\n");
+			flag = 1;
+		}
+		else if (a == strlen(str) - 1 && str[a] == '\n')
+		{
+			printf("EmptyString");
+		}
+		else if (str[a - 1] == str[a] && str[a] == '\n')
+		{
+			continue;
+		}
+	    else printf("%c", str[a]);
+	}
+	return 0;
+}
+
+
+//以上方法并不完美
+//缺少输入wowotwo出现
+//EmptyString
+//EmptyString
+//t
+//EmptyString
+//的情况，需要将程序拆为三部分
+#include<stdio.h>
+int strlen(char* s)
+{
+	int n = 0;
+	while (*(s+n)!='\0')
+	{
+		n++;
+	}
+	return n;
+}
+
+int main()
+{
+	char str[100];
+	char cut[100];
+	scanf("%s", str);
+	scanf("%s", cut);
+	int a, b, arr[100], i = 0,num=0,j;
+	for (a = 0; a < strlen(str); a++)
+	{
+		int flag = 1;
+		for (b = 0; b < strlen(cut); b++)
+		{
+			if (str[a + b] != cut[b])
+				flag = 0;
+		}
+		if (flag)
+		{
+			arr[i] = a;
+			i++;
+		}
+	}
+	a = strlen(str),b = strlen(cut);
+	if (i == 0)
+	{
+		printf("%s", str);
+		return 0;
+	}
+	if (arr[0] == 0)
+	{
+		printf("EmptyString\n");
+	}
+	else
+	{
+		for ( num = 0; num <arr[0]; num++)
+		{
+			printf("%c", str[num]);
+		}
+		printf("\n");
+	}
+	for ( num = 0; num < i-1; num++)
+	{
+		if (arr[num + 1] == arr[num] + b)
+			printf("EmptyString\n");
+		else {
+			for ( j = arr[num]+b; j <arr[num+1] ; j++)
+			{
+				printf("%c", str[j]);
+			}
+			printf("\n");
+		}
+	}
+	if (arr[i - 1] == (a - b)) {
+		printf("EmptyString");
+		return 0;
+	}
+	else {
+
+		for (j = arr[i - 1] + b; j < a; j++) {
+			printf("%c", str[j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+
