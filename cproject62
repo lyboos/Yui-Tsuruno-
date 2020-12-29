@@ -1,0 +1,50 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+
+//编写函数void sort(PS *p,int n)，对p指向的数组中的n个联系人信息排序。
+//要求：按性别排序（f在前m在后，f的编码小于m的编码），性别相同的按姓名排序（字典序）
+
+typedef struct student {
+	long id;
+	char name[10];
+	char sex[2];
+}PS;
+
+void sort(PS* p, int n)
+{
+	int i, j;
+	for ( i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			if (j == i) continue;
+	        if(strcmp((p + i)->sex, ((p + j)->sex)) <0)
+			{
+				PS swap = *(p + i);
+				*(p + i) = *(p + j);
+				*(p + j) =swap;
+			}
+			else if(strcmp((p + i)->sex, ((p + j)->sex)) == 0)
+			{
+				if (strcmp((p + i)->name, (p + j)->name) > 0)
+				{
+					PS swap = *(p + i);
+					*(p + i) = *(p + j);
+					*(p + j) =swap;
+				}
+			}
+		}
+	}
+}
+
+int main()
+{
+	PS a[3] = { {.id = 44,.name = "lyboos",.sex = "m"} ,{.id = 33,.name = "fdsfdf",.sex = "m"},{.id = 22,.name = "lyboos",.sex = "f"} };
+	sort(a, 3);
+	printf("%s,%s",a->name,a->sex);
+	printf("%s,%s", (a+1)->name, (a+1)->sex);
+	printf("%s,%s", (a+2)->name, (a+2)->sex);
+	return 0;
+}
