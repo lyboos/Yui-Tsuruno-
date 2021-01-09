@@ -49,3 +49,25 @@ int main()
 	printf("%d", fun(a));
 	return 0;
 }
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+//#include<string.h>
+//#include<assert.h>
+int strlen(char* a)
+{
+	char* p1 = a;
+	while (*p1)
+	{
+		p1++;
+	}
+	int i = p1 - a;
+	return i;
+}
+
+
+int main()
+{
+	char a[40] = "abcdfg";
+	printf("%d", strlen(a));
+	return 0;
+}
