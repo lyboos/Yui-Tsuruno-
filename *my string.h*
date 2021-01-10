@@ -1,0 +1,49 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int strlen(const char* s)
+{
+	int i = 0;
+	while (*(s + i) != '\0')
+		i++;
+	return i;
+}
+char* strcpy(char* dest, const char* src)
+{
+	while ((*dest++=*src++)!='\0')
+	{
+		;
+	}
+}
+
+char* strcat(char* dest,const char* src)
+{
+	while (*dest!='\0')
+	{
+		dest++;
+	}
+	while (*dest++=*src++)
+	{
+		;
+	}
+}
+int strcmp(const char* a, const char* b)
+{
+	while (*a==*b)
+	{
+		if (*a == '\0')
+			return 0;
+		a++;
+		b++;
+	}
+	return (*a - *b);
+}
+int main()
+{
+	char a[40] = "lyboos";
+	char b[40] = "lpn";
+	char c[40] = "lyboosh";
+	strcat(b, a);
+	printf("%d\n%d\n", strcmp(c, a), strcmp(b, a));
+	printf("%s", b);
+	return 0;
+}
