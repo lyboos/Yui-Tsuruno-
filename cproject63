@@ -123,3 +123,72 @@ int main()
 //	}
 //	return 0;
 //}
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+char* mystrcpy(char* dest, const char* src)
+{
+	while ((*dest++=*src++)!='\0')
+	{
+		;
+	}
+}
+int main()
+{
+	char a[40] = "lyboos";
+	char b[40];
+	mystrcpy(b, a);
+	printf("%s", b);
+	return 0;
+}
+//char* replaceSpace(char* s) {
+//    char arr[1000];
+//    int i = strlen(s), j, count = 0;
+//    for (j = 0; j <= i; j++)
+//        arr[j] = s[j];
+//    for (j = 0; j < i; j++)
+//        if (*(s + j) == ' ')
+//            count++;
+//    for (j = 0,i=0; j < i + 2 * count; j++,i++)
+//    {
+//        if (*(arr + i) == ' ')
+//        {
+//            *(s + j) = '%';
+//            *(s + j + 1) = '2';
+//            *(s + j + 2) = '0';
+//            j += 2;
+//        }
+//        else
+//            *(arr + i) = *(s + j);
+//    }
+//    *(s + i + 2 * count) = '\0';
+//    return s;
+//}
+//int main()
+//{
+//    char a[40] = "sdaasd djfs";
+//    replaceSpace(a);
+//    printf("%s", a);
+//    return 0;
+//}
+//#include<stdlib.h>
+//#include<stdio.h>
+//int main()
+//{
+//	char str[100]; 
+//	scanf("%s", str);
+//	printf("%d", atoi(str)); 
+//	return 0;
+//}
+//char* replaceSpace(char* s) {
+//    char arr[1000] = s;
+//
+//    return s;
+//}
+//
+//int main()
+//{
+//    char a[40] = "sss bbb";
+//    replaceSpace(a);
+//    printf("%s", a);
+//    return 0;
+//}
