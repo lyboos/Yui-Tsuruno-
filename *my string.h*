@@ -1,5 +1,6 @@
 #define  _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
+
 int strlen(const char* s)
 {
 	int i = 0;
@@ -26,6 +27,7 @@ char* strcat(char* dest,const char* src)
 		;
 	}
 }
+
 int strcmp(const char* a, const char* b)
 {
 	while (*a==*b)
@@ -37,6 +39,33 @@ int strcmp(const char* a, const char* b)
 	}
 	return (*a - *b);
 }
+
+//注意代码思想以及特殊类型字符串如：（aaabbbdddc，bdd）
+char* strstr(char* a,char* b)
+{
+	char* s1 = NULL;
+	char* s2 = NULL;
+	char* cur = (char*)a;
+	if (b == '\0')
+		return (char*)a;
+	while (*cur!='\0')
+	{
+		s1 = cur;
+		s2 = (char*)b;
+		while((*s1 != '\0') &&(*s2 != '\0') && (*s1 == *s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2 == '\0')
+		{
+			return cur;
+		}
+		cur++;
+	}
+	return NULL;
+}
+
 int main()
 {
 	char a[40] = "lyboos";
