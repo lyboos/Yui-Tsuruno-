@@ -1,0 +1,33 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+char* strtok(char* str,const char* sep)
+{
+	;
+}
+
+char* strerror(int num)
+{
+	;
+}
+#include<errno.h>
+int main()
+{
+	char a[40] = "201250119@smail.nju!edu&cn";
+	char b[40] = "@.&";
+	char c[40] = "efgh";
+	/*char *d ;
+	for (d = strtok(a, b); d != NULL; d = strtok(NULL, b))
+	{
+		printf("%s\n", d);
+	}*/
+	FILE* pf=fopen("test.txt", "r");
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));
+	}
+	else
+	{
+		printf("open file successfully\n");
+	}
+	return 0;
+}
