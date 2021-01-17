@@ -1,0 +1,52 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int num = 0, counter,tem,i=0,line[1000] = { 0 };
+	scanf("%d", &num);
+	for (counter = 0; counter < num; counter++)
+	{
+		scanf("%d", &line[counter]);
+	}
+	for (counter = 0; counter < num; counter++)
+	{
+		for (tem = 1; tem<= line[counter]; tem++)
+		{
+			for (i = 0; i < line[counter]-tem; i++)
+			{
+				printf(" ");
+			}
+			i = 0;
+			int flag = 1;
+			do{
+				if (flag)
+				{
+					printf("%c", 'a' + i);
+					i++;
+				}
+				else {
+					i--;
+					printf("%c", 'a' + i);
+				}
+				if (i == tem)
+				{
+					i--;
+					flag = 0;
+				}
+			} while (i);
+			printf("\n");
+		}
+		for (tem = line[counter]; tem>0 ; tem--)
+		{
+			for (i = 0; i < line[counter]-tem; i++)
+				printf(" ");
+			printf("a");
+			for (i = 0; i <(2*tem-3); i++)
+				printf(" ");
+			if (tem > 1) printf("a");
+			printf("\n");
+		}
+		printf("\n");
+	}
+	return 0;
+}
