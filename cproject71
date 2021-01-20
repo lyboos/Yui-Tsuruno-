@@ -1,0 +1,155 @@
+#define  _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+//struct ly
+//{
+//	char c1;
+//	int b;
+//	int a[20];
+//	char c3;
+//};
+//
+//int main()
+//{
+//	struct ly lpn = { 0 };
+//	printf("%d", sizeof(lpn));
+//	return 0;
+//}
+
+//quote:
+// 环境为ubuntu下的gcc7.4
+// 推荐大家使用linux/macos下的gcc或win下的mingw/cygwin/wsl等环境进行c/c++的编程
+// visual studio的msvc环境是为windows系统特化的开发环境，语法细节和系统库与“标准”c/c++有一定的出入
+// 推荐大家在linux man page里查找系统库api的具体说明和用法，理解其语义和处理错误分支的方式
+// 例如https://www.kernel.org/doc/man-pages/
+
+#include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+
+void divSolution(int left, int right);
+void lookUpTableSolution(int left, int right);
+int isPrime(int num);
+// 一个只支持10进制，不那么“鲁棒”的字符串转整型实现，匹配系统库strtol的语义
+int myStrtoi(const char *str, const char **endptr);
+
+int main() {
+    int left, right;
+    // 使用scanf两个%d可以完成对简单输入的匹配
+    // scanf("%d %d", &left, &right);
+
+    // 处理复杂输入的一种方法
+    // 从stdin中读一行
+    char *line = NULL;
+    size_t size = 0;
+    // getline的语义之一：如果line为NULL且size为0，会在调用函数时为line malloc足够的空间存储一行字符串
+    if (getline(&line, &size, stdin) == -1) {
+        free(line);     // 由函数使用者free被malloc的line防止内存泄漏
+        printf("read line from stdin failed\n");
+        return -1;
+    }
+    const char *endptr;
+    // 对str所指向的字符串的前驱尝试解析为base进制的long型数字，如果解析成功，endptr将指向数字对应字符串的后继位置
+    // 如果解析成功，函数返回解析后的数字，否则返回0，且errno被设置为ERANGE或EINVAL，分别表示数字过界无法表示和字符串无法被表示为数字
+    // 系统库stdlib.h中可以使用strtol函数实现类似的效果，声明如下
+    // long int strtol(const char *nptr, char **endptr, int base);
+    // 这个函数会尽可能的匹配字符串中的前缀整数，如123abc会返回123作为success结果，在这个题目的要求中，如使用该函数还需对endptr指向的字符做额外判断
+    int rslt = myStrtoi(line, &endptr);
+    if (rslt == 0 && (errno == ERANGE || errno == EINVAL) || rslt > INT_MAX || rslt < INT_MIN) {
+        free(line);
+        printf("illegal input: parse left number failed\n");
+        return -1;
+    }
+    left = rslt;
+    rslt = myStrtoi(endptr, NULL);
+    if (rslt == 0 && (errno == ERANGE || errno == EINVAL) || rslt > INT_MAX || rslt < INT_MIN) {
+        free(line);
+        printf("illegal input: parse right number failed\n");
+        return -1;
+    }
+    right = rslt;
+    free(line);
+    printf("%d %d\n", left, right);
+
+    if (left > right || right < 2) {
+        printf("illegal input: right less than left or not in prime range\n");
+        return -1;
+    }
+
+    divSolution(left, right);
+    lookUpTableSolution(left, right);
+
+}
+
+int myStrtoi(const char *str, const char **endptr) {
+    const char *p = str;
+    int sign = 1, base = 0;
+    while (*p == ' ' || *p == '\t')
+        p++;
+    if (*p == '-' || *p == '+') {
+        sign = 1 - 2 * (*p == '-');
+        p++;
+    }
+    while (*p >= '0' && *p <= '9') {
+        // 数字大小越界检查
+        if (base > INT_MAX / 10 || (base == INT_MAX / 10 && *p - '0' > 7)) {
+            errno = ERANGE;
+            return 0;
+        }
+        base = 10 * base + (*p - '0');
+        p++;
+    }
+    if (*p == ' ' || *p == '\t' || *p == '\n' || *p == '\0') {
+        if (endptr != NULL) *endptr = p;
+        return base * sign;
+    }
+    else {
+        errno = EINVAL;
+        return 0;
+    }
+}
+
+void divSolution(int left, int right) {
+    printf("division method result:\n");
+    int i;
+    for (i = left > 2 ? left : 2; i <= right; i++) {
+        if (isPrime(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int isPrime(int num) {
+    int div;
+    for (div = 2; div * div <= num; div++) {
+        if (num % div == 0)
+            return 0;
+    }
+    return 1;
+}
+
+void lookUpTableSolution(int left, int right) {
+    printf("look up table method result:\n");
+    // c语言不支持栈空间的动态数组长度分配，因此使用malloc
+    // 0代表是素数，1代表不是
+    char *primesLUT = malloc(sizeof(char) * (right + 1));
+    memset(primesLUT, 0, sizeof(char) * (right + 1));
+    int i, j;
+    for (i = 2; i <= right; i++) {
+        if (primesLUT[i] == 0) {
+            for (j = i; j * i <= right; j++) {
+                primesLUT[j * i] = 1;
+            }
+        }
+    }
+    for (i = left > 2 ? left : 2; i <= right; i++) {
+        if (primesLUT[i] == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    free(primesLUT);
+}
