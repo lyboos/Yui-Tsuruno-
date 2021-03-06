@@ -2,6 +2,35 @@
 import random
 
 
+
+def guess(y):
+    i = 1
+    while 1:
+        print("第" + str(i) + "次猜测：", end="")
+        try:
+            x = int(input())
+        except ValueError:
+            print("input error!")
+            continue
+        else:
+            i = i + 1
+        if not 0 <= x <= 100:
+            print("out of range!")
+        elif x > y:
+            print("bigger")
+        elif x < y:
+            print("smaller")
+
+        else:
+            print("猜对了！！")
+            break
+    return y;
+
+
+print("猜测0-100内数字")
+b = random.randint(0, 101)
+guess(b)
+'''
 def guess(y):
     i=1
     while 1:
@@ -22,6 +51,7 @@ def guess(y):
 print("猜测0-100内数字")
 b = random.randint(0,101)
 guess(b)
+'''
 '''
 def divide(x, y):
     try:
