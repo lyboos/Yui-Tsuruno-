@@ -1,9 +1,10 @@
 body{
-    background-color: aquamarine;
-    color: beige;
+    background-color: antiquewhite;
+    color: blue;
     font-family:Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: normal;
+    margin: 20px 10px;
 }
 
 p{
@@ -16,12 +17,67 @@ p{
     color:purple;
     font-family: "Andale Mono",monospace;
     text-transform: uppercase;
+    position: relative;
+    top: 30px;
+    left:30px;
 }
 
-box1{
+.box1{
     background-color: antiquewhite;
     border: 5px blue solid;
     border-right: 5px red solid;
     border-left: 5px green solid;
     border-top: 8px gray dotted;
+    padding: 20px;
+}
+
+.list li{
+    list-style-image: url('./s5825210.jpg');
+    padding: auto;
+    margin: 30px;
+}
+
+button{
+    background-color: #444;
+    color: #fff;
+    padding: 10px 5px;
+}
+
+button:hover{
+    background-color: dimgray;
+}
+
+button:active{
+    color: gold;
+}
+
+a{
+    text-decoration: none;
+    color:#555;
+}
+
+a:hover{
+    color: dimgray;
+    background-color: ghostwhite;
+}
+
+a:visited{
+    color: red;
+}
+
+.block{
+    float: left;
+    width:33.3%;
+    border: 5px dotted grey;
+    box-sizing: border-box;
+}
+
+#mainblock{
+    float: right;
+}
+
+#lyboos{
+    position: fixed;
+    right: 0;
+    bottom: 0;
 }
