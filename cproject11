@@ -41,6 +41,7 @@ void move(int n, char a, char c)
 }
 void hnt(int n,char a,char b,char c)
 {
+//汉诺塔递归
 	if (n == 1) 
 		move(n, a, c);
 	else {
