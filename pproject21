@@ -1,0 +1,10 @@
+from selenium import webdriver
+import os
+path=os.getcwd()
+wb=webdriver.Firefox(executable_path=os.path.join(path,'geckodriver'))
+
+if __name__ == '__main__':
+    wb.get('https://www.baidu.com/baidu?tn=monline_7_dg&ie=utf-8&wd=%E5%BC%80%E7%94%B2%E5%A7%8B%E7%94%9F')
+    # #elements=wb.find_elements_by_class_name("c-font-medium c-color-t opr-toplist1-subtitle_3FULy")
+    # for element in elements:
+    #     print(1)
